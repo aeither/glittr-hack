@@ -1,13 +1,12 @@
 import { Account, type BlockTxTuple, GlittrSDK, txBuilder } from "@glittr-sdk/sdk";
 
 async function createFreeMintContract() {
-	const NETWORK = "testnet";
-	// const NETWORK = "regtest";
+	const NETWORK = "regtest";
 
 	const client = new GlittrSDK({
 		network: NETWORK,
-		electrumApi: "https://8c5d-58-11-42-217.ngrok-free.app",
-		glittrApi: "https://11db-58-11-42-217.ngrok-free.app",
+		electrumApi: "https://d1d1-58-11-42-217.ngrok-free.app",
+		glittrApi: "https://6e2a-58-11-42-217.ngrok-free.app",
 		// electrumApi: "https://devnet-electrum.glittr.fi",
 		// glittrApi: "https://devnet-core-api.glittr.fi",
 	});

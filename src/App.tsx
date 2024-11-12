@@ -11,10 +11,8 @@ const NETWORK = "regtest";
 
 const client = new GlittrSDK({
 	network: NETWORK,
-	electrumApi: "https://8c5d-58-11-42-217.ngrok-free.app",
-	glittrApi: " https://11db-58-11-42-217.ngrok-free.app",
-	// electrumApi: "https://hackathon-electrum.glittr.fi",
-	// glittrApi: "https://hackathon-core-api.glittr.fi",
+	electrumApi: "https://hackathon-electrum.glittr.fi",
+	glittrApi: "https://hackathon-core-api.glittr.fi",
 });
 
 function App() {
@@ -24,7 +22,6 @@ function App() {
 	async function createFreeMintContract() {
 		try {
 			setLoading(true);
-
 			const account = new Account({
 				wif: "cW84FgWG9U1MpKvdzZMv4JZKLSU7iFAzMmXjkGvGUvh5WvhrEASj",
 				network: NETWORK,
@@ -57,7 +54,6 @@ function App() {
 	async function transfer() {
 		try {
 			setLoading(true);
-
 			const creatorAccount = new Account({
 				wif: "cW84FgWG9U1MpKvdzZMv4JZKLSU7iFAzMmXjkGvGUvh5WvhrEASj",
 				network: NETWORK,
@@ -95,37 +91,54 @@ function App() {
 	}
 
 	return (
-
-		<div className="min-h-screen flex flex-col items-center justify-center gap-4 p-4 container">
-			<h1 className="text-2xl font-bold mb-4">Glittr NFT Minting</h1>
-
-			<UploadComponent />
-			<div className="flex flex-col gap-4">
-				<button
-					type="button"
-					onClick={createFreeMintContract}
-					disabled={loading}
-					className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50"
-				>
-					{loading ? "Processing..." : "Create Free Mint Contract"}
-				</button>
-
-				<button
-					type="button"
-					onClick={transfer}
-					disabled={loading}
-					className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 disabled:opacity-50"
-				>
-					{loading ? "Processing..." : "Transfer"}
-				</button>
+		<div className="min-h-screen flex flex-col items-center justify-start p-4">
+			<div className="w-full max-w-4xl mx-auto text-center space-y-6 py-12">
+				<h1 className="text-4xl font-bold text-gray-900">
+					Bitcoin L2 Token Minting
+				</h1>
+				<p className="text-xl text-gray-600 max-w-2xl mx-auto">
+					Create and transfer NFTs on Bitcoin without Layer 2s. Powered by
+					GLITTR. Experience the
+					future of digital asset creation on the most secure blockchain.
+				</p>
 			</div>
 
-			{txId && (
-				<div className="mt-4 p-4 bg-gray-100 rounded">
-					<p className="font-semibold">Transaction ID:</p>
-					<p className="break-all">{txId}</p>
+			<div className="w-full max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">
+				<div className="space-y-8">
+					<UploadComponent />
+
+					<div className="flex flex-col gap-4">
+						<button
+							type="button"
+							onClick={createFreeMintContract}
+							disabled={loading}
+							className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg
+                hover:bg-blue-700 disabled:opacity-50 transition-all
+                font-medium text-lg"
+						>
+							{loading ? "Processing..." : "Create Free Mint Contract"}
+						</button>
+
+						<button
+							type="button"
+							onClick={transfer}
+							disabled={loading}
+							className="w-full px-6 py-3 bg-green-600 text-white rounded-lg
+                hover:bg-green-700 disabled:opacity-50 transition-all
+                font-medium text-lg"
+						>
+							{loading ? "Processing..." : "Transfer Token"}
+						</button>
+					</div>
+
+					{txId && (
+						<div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+							<p className="font-semibold text-gray-700">Transaction ID:</p>
+							<p className="break-all text-sm text-gray-600 mt-1">{txId}</p>
+						</div>
+					)}
 				</div>
-			)}
+			</div>
 		</div>
 	);
 }
