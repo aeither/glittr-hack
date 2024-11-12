@@ -6,6 +6,7 @@ import {
 } from "@glittr-sdk/sdk";
 import { useState } from "react";
 import UploadComponent from "./UploadComponent";
+import { GradientBackground } from "./components/gradientBackground";
 
 const NETWORK = "regtest";
 
@@ -91,55 +92,57 @@ function App() {
 	}
 
 	return (
-		<div className="min-h-screen flex flex-col items-center justify-start p-4">
-			<div className="w-full max-w-4xl mx-auto text-center space-y-6 py-12">
-				<h1 className="text-4xl font-bold text-gray-900">
-					Bitcoin L2 Token Minting
-				</h1>
-				<p className="text-xl text-gray-600 max-w-2xl mx-auto">
-					Create and transfer NFTs on Bitcoin without Layer 2s. Powered by
-					GLITTR. Experience the
-					future of digital asset creation on the most secure blockchain.
-				</p>
-			</div>
+		<GradientBackground>
+			<div className="min-h-screen flex flex-col items-center justify-start p-4">
+				<div className="w-full max-w-4xl mx-auto text-center space-y-6 py-12">
+					<h1 className="text-4xl font-bold text-gray-100">
+						Bitcoin L2 Token Minting
+					</h1>
+					<p className="text-xl text-gray-200 max-w-2xl mx-auto">
+						Create and transfer NFTs on Bitcoin without Layer 2s. Powered by
+						GLITTR. Experience the future of digital asset creation on the most
+						secure blockchain.
+					</p>
+				</div>
 
-			<div className="w-full max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">
-				<div className="space-y-8">
-					<UploadComponent />
+				<div className="w-full max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">
+					<div className="space-y-8">
+						<UploadComponent />
 
-					<div className="flex flex-col gap-4">
-						<button
-							type="button"
-							onClick={createFreeMintContract}
-							disabled={loading}
-							className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg
+						<div className="flex flex-col gap-4">
+							<button
+								type="button"
+								onClick={createFreeMintContract}
+								disabled={loading}
+								className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg
                 hover:bg-blue-700 disabled:opacity-50 transition-all
                 font-medium text-lg"
-						>
-							{loading ? "Processing..." : "Create Free Mint Contract"}
-						</button>
+							>
+								{loading ? "Processing..." : "Create Free Mint Contract"}
+							</button>
 
-						<button
-							type="button"
-							onClick={transfer}
-							disabled={loading}
-							className="w-full px-6 py-3 bg-green-600 text-white rounded-lg
+							<button
+								type="button"
+								onClick={transfer}
+								disabled={loading}
+								className="w-full px-6 py-3 bg-green-600 text-white rounded-lg
                 hover:bg-green-700 disabled:opacity-50 transition-all
                 font-medium text-lg"
-						>
-							{loading ? "Processing..." : "Transfer Token"}
-						</button>
-					</div>
-
-					{txId && (
-						<div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
-							<p className="font-semibold text-gray-700">Transaction ID:</p>
-							<p className="break-all text-sm text-gray-600 mt-1">{txId}</p>
+							>
+								{loading ? "Processing..." : "Transfer Token"}
+							</button>
 						</div>
-					)}
+
+						{txId && (
+							<div className="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+								<p className="font-semibold text-gray-700">Transaction ID:</p>
+								<p className="break-all text-sm text-gray-600 mt-1">{txId}</p>
+							</div>
+						)}
+					</div>
 				</div>
 			</div>
-		</div>
+		</GradientBackground>
 	);
 }
 
