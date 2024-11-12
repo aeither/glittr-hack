@@ -96,7 +96,7 @@ function App() {
 			<div className="min-h-screen flex flex-col items-center justify-start p-4">
 				<div className="w-full max-w-4xl mx-auto text-center space-y-6 py-12">
 					<h1 className="text-4xl font-bold text-gray-100">
-						Bitcoin L2 Token Minting
+						Bitcoin NFT Minting
 					</h1>
 					<p className="text-xl text-gray-200 max-w-2xl mx-auto">
 						Create and transfer NFTs on Bitcoin without Layer 2s. Powered by
