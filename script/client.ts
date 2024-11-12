@@ -1,17 +1,23 @@
 import { Account, type BlockTxTuple, GlittrSDK, txBuilder } from "@glittr-sdk/sdk";
 
 async function createFreeMintContract() {
-	const NETWORK = "regtest";
+	const NETWORK = "testnet";
+	// const NETWORK = "regtest";
 
 	const client = new GlittrSDK({
 		network: NETWORK,
-		electrumApi: "https://devnet-electrum.glittr.fi",
-		glittrApi: "https://devnet-core-api.glittr.fi",
+		electrumApi: "https://8c5d-58-11-42-217.ngrok-free.app",
+		glittrApi: " https://11db-58-11-42-217.ngrok-free.app",
+		// electrumApi: "https://devnet-electrum.glittr.fi",
+		// glittrApi: "https://devnet-core-api.glittr.fi",
 	});
 	const account = new Account({
-		wif: "cW84FgWG9U1MpKvdzZMv4JZKLSU7iFAzMmXjkGvGUvh5WvhrEASj",
+		wif: "cRcsF4gcFxgmeAScu3j8p5yt361paNXKd4gEqtw2D3fDc7ss3MKb",
+		// wif: "cW84FgWG9U1MpKvdzZMv4JZKLSU7iFAzMmXjkGvGUvh5WvhrEASj",
 		network: NETWORK,
 	});
+
+	console.log(`User account ${account.p2pkh().address}`);
 
 	const c = txBuilder.freeMintContractInstantiate({
 		simple_asset: {
@@ -68,4 +74,4 @@ async function transfer() {
 }
 
 createFreeMintContract();
-transfer();
+// transfer();
