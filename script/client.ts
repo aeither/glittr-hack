@@ -7,7 +7,7 @@ async function createFreeMintContract() {
 	const client = new GlittrSDK({
 		network: NETWORK,
 		electrumApi: "https://8c5d-58-11-42-217.ngrok-free.app",
-		glittrApi: " https://11db-58-11-42-217.ngrok-free.app",
+		glittrApi: "https://11db-58-11-42-217.ngrok-free.app",
 		// electrumApi: "https://devnet-electrum.glittr.fi",
 		// glittrApi: "https://devnet-core-api.glittr.fi",
 	});
